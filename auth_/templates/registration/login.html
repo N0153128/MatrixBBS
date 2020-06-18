@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/master.css' %}" type="text/css">
+</head>
+<body>
+
+    {% if form.errors %}
+    <p>Something went wrong</p>
+    {% endif %}
+
+    {% if next %}
+    <p>Unable to access the page</p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <p>Username: {{ form.username }}</p>
+        <p>Password: {{ form.password }}</p>
+        <br/><input type="submit" value="login">
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
+</body>
+</html>

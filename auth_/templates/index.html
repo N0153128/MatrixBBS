@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/master.css' %}" type="text/css">
+</head>
+<body>
+{% if user.is_authenticated %}
+<h1>Welcome to Matrix, {{ user.username }}</h1>
+<a href="{% url 'Auth_:logout' %}">Logout</a>
+<a href="{% url 'Board:board' %}">Board</a>
+{% else %}
+<h1>Welcome to Matrix</h1>
+<a href="{% url 'login' %}">Login</a>
+<br />
+<a href="{% url 'Auth_:register' %}">Register</a>
+{% endif %}
+</body>
+</html>
