@@ -10,9 +10,18 @@
     <link rel="stylesheet" href="{% static 'css/master.css' %}" type="text/css">
 </head>
 <body>
-Logged in as {{ user.username }} |
-<a href="{% url 'Auth_:index' %}">Back to main</a> | <br /><br /><br />
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Logged in as {{ user.username }} </li>
+        <li class="breadcrumb-item"><a href="{% url 'Auth_:logout' %}">Logout</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'Auth_:index' %}">Home</a> </li>
+  </ol>
+</nav>
+
 <div class="container">
+    <div class="row">
+        <div class="col-lg-2 col-xl-2 "></div>
+        <div class="col-lg-8 col-xl-8 ">
 {% if latest_threads %}
     <div>
 {% for thread in latest_threads %}
@@ -31,6 +40,9 @@ Logged in as {{ user.username }} |
     {{form.as_p}}
     <button type="submit" name="thread">POST</button>
 </form>
+    </div>
+        <div class="col-lg-2 col-xl-2 "></div>
+    </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
