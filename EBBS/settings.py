@@ -31,7 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'auth_',
+    'chat',
     'board',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -127,3 +129,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/home/noise/Documents/EBBS/EBBS/static/',
 ]
+
+ASGI_APPLICATION = 'routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
