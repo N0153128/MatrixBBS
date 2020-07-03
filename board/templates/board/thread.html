@@ -24,9 +24,16 @@
             <div class="col-lg-2 col-xl-2 "></div>
             <div class="col-lg-8 col-xl-8 ">
     <div class="card">
-        <div class="card-title"><h4> {{ thread.thread_title }} </h4></div>
+        <div class="card-title"><h4> {{ thread.thread_title }} &nbsp;</h4></div>
             <h6>Category: {{ thread.category }}</h6><br />
-        <div class="card-text"><h5> {{ thread.thread_text }} </h5></div>
+        <div class="card-text"><h5> {{ thread.thread_text }} </h5>
+            {% if thread.thread_author == user.username %}
+            <form action="{% url 'Board:delete_thread' thread.id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Confirm" style="background-color: black; color: green; border: none;">
+            </form>
+        <a href="#" value="delete" style="background-color: black; color: green; border: none;">delete</a></div>
+            {% endif %}
     </div>
 <hr />
 

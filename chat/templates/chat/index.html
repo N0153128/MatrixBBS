@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Chat Rooms</title>
+    <title>Chat</title>
     {% load static %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
@@ -12,9 +12,25 @@
 </head>
 <body>
 <div class="container">
+    <div class="row">
+    <div class="col-lg-2 col-xl-2 "></div>
+    <div class="col-lg-8 col-xl-8 ">
+    <h1>Welcome to Matrix, {{ user.username }}</h1>
+            <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Logged in as {{ user.username }} </li>
+        <li class="breadcrumb-item"><a href="{% url 'Auth_:logout' %}">Logout</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'Board:board' %}">Board</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'Chat:index' %}">Chat</a></li>
+  </ol>
+</nav>
+
     What chat room would you like to enter?<br>
-    <input id="room-name-input" type="text" size="100"><br>
-    <input id="room-name-submit" type="button" value="Enter">
+    <input id="room-name-input" type="text" placeholder="Enter room name here" style="background-color: black; color: green; border-width: 1px;" width="100%"><br>
+    <input id="room-name-submit" type="button" style="background-color: black; color: green; border: none;" value="Enter">
+    </div>
+    <div class="col-lg-2 col-xl-2 "></div>
+</div>
 </div>
     <script>
         document.querySelector('#room-name-input').focus();

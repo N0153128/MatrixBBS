@@ -1,6 +1,9 @@
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from django.template import loader
+from django.urls import reverse_lazy
+from django.views.generic.edit import DeleteView
 from .models import Thread, Comment
 from django.urls import reverse
 from django.views import generic
@@ -44,6 +47,12 @@ def Board(request):
     return HttpResponse(template.render(context,request))
 
 
+
+class ThreadDelete(DeleteView):
+    model = Thread
+    success_url = reverse_lazy('Board:board')
+
+
 @login_required
 def threadview(request, pk):
     thread = Thread.objects.get(id = pk)
@@ -61,6 +70,7 @@ def threadview(request, pk):
             return HttpResponseRedirect(reverse('Board:thread', kwargs={'pk':thread.id}))
         else:
             raise Http404("Something went wrong")
+
     form = CommentForm()
     context = {
         'thread': thread,

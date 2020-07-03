@@ -11,12 +11,12 @@
 </head>
 <body>
 <div class="container">
-    <textarea disabled id="chat-log" cols="100" rows="20" style="background-color: black; color: green;"></textarea><br>
-    <input id="chat-message-input" type="text" size="100"><br>
-    <div class="row">
-        <input id="chat-message-submit" type="button" value="Send">
-        <a href="{% url 'Chat:index' %}"><input type="button" value="Exit"></a>
-    </div>
+    <textarea disabled id="chat-log" cols="100" rows="20" style="background-color: black; color: green; border: none;"></textarea><br>
+    <input id="chat-message-input" type="text" placeholder="Type your message here" style="background-color: black; width: 100%; color: white; height: 2rem" size="100"><br>
+<!--    <div class="row">-->
+        <input id="chat-message-submit" type="button" style="background-color: black; width: 100%; color: white; height: 2rem" value="Send">
+        <a href="{% url 'Chat:index' %}"><input type="button" style="background-color: black; width: 100%; color: white; height: 2rem" value="Exit"></a>
+<!--    </div>-->
     {{ room_name|json_script:"room-name" }}
 </div>
     <script>

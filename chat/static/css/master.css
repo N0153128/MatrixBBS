@@ -23,3 +23,7 @@ background-color: green;
 .breadcrumb{
 background-color: black;
 }
+
+textarea{
+border: none;
+}
