@@ -27,7 +27,7 @@
         {% csrf_token %}
         <p>Username: {{ form.username }}</p>
         <p>Password: {{ form.password }}</p>
-        <br/><input style="background-color: black; width: 100%; color: white; height: 2rem" type="submit" value="login">
+        <br/><button class="btn-secondary shadow-none" type="submit">Login</button>
         <input type="hidden" name="next" value="{{ next }}">
     </form>
         </div>

@@ -21,6 +21,9 @@
         <li class="breadcrumb-item"><a href="{% url 'Auth_:logout' %}">Logout</a></li>
         <li class="breadcrumb-item"><a href="{% url 'Board:board' %}">Board</a></li>
         <li class="breadcrumb-item"><a href="{% url 'Chat:index' %}">Chat</a></li>
+        {% if user.id == 1 %}
+        <li class="breadcrumb-item"><a href="admin/">Admin</a></li>
+        {% endif %}
   </ol>
 </nav>
 {% else %}

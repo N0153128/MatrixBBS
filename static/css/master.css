@@ -1,0 +1,61 @@
+body{
+background-color: black;
+color: green;
+}
+
+a{
+color: green;
+text-decoration: underline
+}
+
+a:hover{
+color: green;
+}
+
+.card, .card-text, .card-title{
+background-color: black;
+}
+
+hr{
+background-color: green;
+}
+
+.breadcrumb{
+background-color: black;
+}
+
+.btn-block{
+background-color: black;
+}
+
+.modal-content{
+background-color: black;
+}
+
+.btn-secondary{
+background-color: black;
+border: none;
+hover: none;
+}
+
+.btn-primary{
+background-color: gray;
+border: none
+hover: none;
+}
+
+.btn-link{
+color: green;
+}
+
+.btn-link:hover{
+color: green;
+}
+
+.modal-header{
+border-bottom: none;
+}
+
+.modal-footer{
+border-top: none;
+}

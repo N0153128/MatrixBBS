@@ -129,8 +129,7 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    '/home/noise/Documents/EBBS/EBBS/static/',
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 ASGI_APPLICATION = 'routing.application'
